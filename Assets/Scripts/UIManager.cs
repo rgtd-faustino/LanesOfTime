@@ -22,4 +22,12 @@ public class UIManager : MonoBehaviour {
     public void SpawnCharacter(bool isLeft) {
         GameManager.Instance.SpawnCharacter(isLeft);
     }
+
+    public void ChangeCharacterTypeLeft(string characterType) {
+        GameManager.Instance.characterTypeLeft = characterType;
+    }
+
+    public void ChangeCharacterTypeRight(string characterType) {
+        GameManager.Instance.characterTypeRight = characterType;
+    }
 }

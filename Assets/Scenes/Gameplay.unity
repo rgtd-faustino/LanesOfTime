@@ -200,7 +200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 23677876}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 559017518}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeCharacterTypeLeft
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Melee
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &23677876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,9 +832,9 @@ RectTransform:
   - {fileID: 276073571}
   m_Father: {fileID: 1914330610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 514, y: 581}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 464, y: 598}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &244469045
@@ -843,7 +855,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 120
+  m_Spacing: 90
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -887,7 +899,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &245017835
 MonoBehaviour:
@@ -1109,7 +1121,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &276073572
 MonoBehaviour:
@@ -2627,9 +2639,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77038a05163cc5148a096161e3faa999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
   laneNumber: 2
   isLeftSide: 1
+  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
+  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
+  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
+  MeleePrefabEra2: {fileID: 0}
+  RangedPrefabEra2: {fileID: 0}
+  SpecialPrefabEra2: {fileID: 0}
+  MeleePrefabEra3: {fileID: 0}
+  RangedPrefabEra3: {fileID: 0}
+  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &641269519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,9 +2749,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77038a05163cc5148a096161e3faa999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
   laneNumber: 1
   isLeftSide: 0
+  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
+  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
+  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
+  MeleePrefabEra2: {fileID: 0}
+  RangedPrefabEra2: {fileID: 0}
+  SpecialPrefabEra2: {fileID: 0}
+  MeleePrefabEra3: {fileID: 0}
+  RangedPrefabEra3: {fileID: 0}
+  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &647291017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,9 +2859,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77038a05163cc5148a096161e3faa999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
   laneNumber: 1
   isLeftSide: 1
+  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
+  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
+  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
+  MeleePrefabEra2: {fileID: 0}
+  RangedPrefabEra2: {fileID: 0}
+  SpecialPrefabEra2: {fileID: 0}
+  MeleePrefabEra3: {fileID: 0}
+  RangedPrefabEra3: {fileID: 0}
+  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &657734224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,7 +3287,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &826921072
 MonoBehaviour:
@@ -3552,7 +3588,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 873946772}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 559017518}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeCharacterTypeLeft
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Range
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &873946772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3672,7 +3720,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 889595383}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 559017518}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeCharacterTypeRight
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Special
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &889595383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3810,9 +3870,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77038a05163cc5148a096161e3faa999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
   laneNumber: 2
   isLeftSide: 0
+  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
+  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
+  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
+  MeleePrefabEra2: {fileID: 0}
+  RangedPrefabEra2: {fileID: 0}
+  SpecialPrefabEra2: {fileID: 0}
+  MeleePrefabEra3: {fileID: 0}
+  RangedPrefabEra3: {fileID: 0}
+  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &942896008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,7 +3981,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944089738}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000017702578}
   m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3922,9 +3990,9 @@ RectTransform:
   - {fileID: 826921071}
   m_Father: {fileID: 1535860834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -446, y: 581}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -396, y: 598.00006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &944089740
@@ -3945,7 +4013,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 120
+  m_Spacing: 90
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -4217,9 +4285,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77038a05163cc5148a096161e3faa999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
   laneNumber: 0
   isLeftSide: 0
+  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
+  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
+  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
+  MeleePrefabEra2: {fileID: 0}
+  RangedPrefabEra2: {fileID: 0}
+  SpecialPrefabEra2: {fileID: 0}
+  MeleePrefabEra3: {fileID: 0}
+  RangedPrefabEra3: {fileID: 0}
+  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &976344863
 GameObject:
   m_ObjectHideFlags: 0
@@ -4301,7 +4377,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 976344866}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 559017518}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeCharacterTypeRight
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Melee
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &976344866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4376,7 +4464,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043965352
 MonoBehaviour:
@@ -4679,9 +4767,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77038a05163cc5148a096161e3faa999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
   laneNumber: 0
   isLeftSide: 1
+  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
+  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
+  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
+  MeleePrefabEra2: {fileID: 0}
+  RangedPrefabEra2: {fileID: 0}
+  SpecialPrefabEra2: {fileID: 0}
+  MeleePrefabEra3: {fileID: 0}
+  RangedPrefabEra3: {fileID: 0}
+  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &1198573388
 GameObject:
   m_ObjectHideFlags: 0
@@ -4763,7 +4859,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1198573391}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 559017518}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeCharacterTypeLeft
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Special
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1198573391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4825,18 +4933,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279934032}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 275813138}
   - {fileID: 197305804}
-  m_Father: {fileID: 1535860834}
+  m_Father: {fileID: 1464265130}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -413.00006, y: -452}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1312298725
@@ -5041,7 +5149,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435244780
 MonoBehaviour:
@@ -5166,6 +5274,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1535860834}
+  - {fileID: 1279934033}
   m_Father: {fileID: 657734228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5312,7 +5421,6 @@ RectTransform:
   - {fileID: 1432768395}
   - {fileID: 342733037}
   - {fileID: 944089739}
-  - {fileID: 1279934033}
   m_Father: {fileID: 1464265130}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5431,7 +5539,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768404050
 MonoBehaviour:
@@ -5719,7 +5827,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1847599424}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 559017518}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeCharacterTypeRight
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Range
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1847599424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6030,6 +6150,22 @@ MonoBehaviour:
   - {fileID: 975233363}
   - {fileID: 641269524}
   - {fileID: 892789098}
+  leftButtons:
+  - {fileID: 826921070}
+  - {fileID: 1043965350}
+  - {fileID: 1435244778}
+  rightButtons:
+  - {fileID: 276073570}
+  - {fileID: 1768404048}
+  - {fileID: 245017833}
+  buttonOnRight: {fileID: 21300000, guid: 0f08f51ff07b0a44cba8ecb58e1fc731, type: 3}
+  buttonOnLeft: {fileID: 21300000, guid: faec833aaa8d6824f82271ba9372bd3b, type: 3}
+  buttonOffRight: {fileID: 21300000, guid: e56baad6607a827499b7976ad3fd38e6, type: 3}
+  buttonOffLeft: {fileID: 21300000, guid: 8252221e0bad5aa4ab70b2eee9fe6ad6, type: 3}
+  currentEraLeft: 
+  currentEraRight: 
+  characterTypeLeft: 
+  characterTypeRight: 
   laneToDeployLeft: 0
   laneToDeployRight: 0
 --- !u!1 &2143696957

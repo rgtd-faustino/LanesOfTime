@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour {
     public Sprite buttonOffRight;
     public Sprite buttonOffLeft;
 
-    public string currentEraLeft = "Era1";
-    public string currentEraRight = "Era1";
-    public string characterTypeLeft = "";
-    public string characterTypeRight = "";
+    [HideInInspector] public string currentEraLeft;
+    [HideInInspector] public string currentEraRight;
+    [HideInInspector] public string characterTypeLeft = "";
+    [HideInInspector] public string characterTypeRight = "";
 
     [HideInInspector] public int laneToDeployLeft = 0;
     [HideInInspector] public int laneToDeployRight = 0;
@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour {
         } else {
             Instance = this;
         }
+    }
+
+    private void Start() {
+        currentEraLeft = "Era1";
+        currentEraRight = "Era1";
     }
 
     public void ChangeLaneToDeploy(bool isLeft, int lane) {

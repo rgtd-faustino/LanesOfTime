@@ -55,6 +55,7 @@ public class Spawner : MonoBehaviour {
         }
 
         CharacterScript characterScript = Instantiate(charactersForEras[currentEra][characterType], transform.position, transform.rotation).GetComponent<CharacterScript>();
+        characterScript.type = characterType;
 
         characterScript.direction = isLeftSide ? 1 : -1;
 

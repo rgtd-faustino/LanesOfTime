@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour {
 
     public void ChangeCharacterTypeLeft(string characterType) {
         GameManager.Instance.characterTypeLeft = characterType;
+
     }
 
     public void ChangeCharacterTypeRight(string characterType) {

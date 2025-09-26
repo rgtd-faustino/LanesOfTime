@@ -60,11 +60,20 @@ public class Spawner : MonoBehaviour {
         characterScript.direction = isLeftSide ? 1 : -1;
 
         switch (laneNumber) {
+            case 0:
+                characterScript.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                break;
             case 1:
-                characterScript.transform.localScale = new Vector3(0.95f, 0.95f, 0.95f);
+                characterScript.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                 break;
             case 2:
-                characterScript.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+                characterScript.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                break;
+            case 3:
+                characterScript.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                break;
+            case 4:
+                characterScript.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                 break;
         }
     }

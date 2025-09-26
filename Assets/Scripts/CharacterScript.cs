@@ -108,4 +108,10 @@ public class CharacterScript : MonoBehaviour
         isAttacking = false;
         enemyToHit = null;
     }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.gameObject.CompareTag("WorldLimit")) {
+            Destroy(gameObject);
+        }
+    }
 }

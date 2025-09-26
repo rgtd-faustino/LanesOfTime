@@ -11,7 +11,7 @@ public class AttackBoxCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.GetComponentInParent<CharacterScript>() && 
-            other.gameObject.GetComponentInParent<CharacterScript>().direction != character.direction) {
+            other.gameObject.GetComponentInParent<CharacterScript>().direction != character.direction && other.gameObject.CompareTag("Character")) {
             character.isAttacking = true;
             character.enemyToHit = other.gameObject.GetComponentInParent<CharacterScript>();
             character.HitEnemy();

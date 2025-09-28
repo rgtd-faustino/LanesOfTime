@@ -57,6 +57,15 @@ public class Spawner : MonoBehaviour {
         CharacterScript characterScript = Instantiate(charactersForEras[currentEra][characterType], transform.position, transform.rotation).GetComponent<CharacterScript>();
         characterScript.type = characterType;
 
+        if (isLeftSide) {
+            characterScript.gameObject.tag = "CharacterLeft";
+            characterScript.gameObject.layer = LayerMask.NameToLayer("CharacterLeft");
+
+        } else {
+            characterScript.gameObject.tag = "CharacterRight";
+            characterScript.gameObject.layer = LayerMask.NameToLayer("CharacterRight");
+        }
+
         characterScript.direction = isLeftSide ? 1 : -1;
 
         switch (laneNumber) {

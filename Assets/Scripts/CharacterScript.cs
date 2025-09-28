@@ -20,7 +20,9 @@ public class CharacterScript : MonoBehaviour
     [HideInInspector] public Slider slider;
 
     private BoxCollider attackCollider;
-    [HideInInspector] public CharacterScript enemyToHit;
+    [HideInInspector] public GameObject targetToDamage;
+    [HideInInspector] public bool isTargetingBase;
+    public BaseScript enemyBase;
     public bool isAttacking;
 
     [SerializeField] private GameObject firePosRight;
@@ -59,7 +61,7 @@ public class CharacterScript : MonoBehaviour
             return;
         }
 
-        Vector3 movement = direction * speed * Time.deltaTime * Vector3.right;
+            Vector3 movement = direction * speed * Time.deltaTime * Vector3.right;
         rb.MovePosition(rb.position + movement);
     }
 
@@ -79,34 +81,51 @@ public class CharacterScript : MonoBehaviour
         }
     }
 
+    private bool IsTargetAlive() {
+        if (isTargetingBase) {
+            return targetToDamage.GetComponent<BaseScript>().health > 0;
+        } else {
+            return targetToDamage.GetComponent<CharacterScript>().health > 0;
+        }
+    }
+
     // quando arranjar um boneco a animação dele bater é que vai chamar esta função e não vai haver necessidade de fazer uma coroutine
     // porque a animação é que vai fazer o attackSpeed e assim
     private IEnumerator ApplyDamageMelee() {
-        while (enemyToHit != null && enemyToHit.health > 0) {
-            enemyToHit.health = Mathf.Clamp(enemyToHit.health - attackDamage, 0, enemyToHit.data.health);
-            enemyToHit.slider.value = enemyToHit.health;
-            yield return new WaitForSeconds(attackSpeed);
+        while (targetToDamage != null && IsTargetAlive()) {
+            if (isTargetingBase) {
+                BaseScript target = targetToDamage.GetComponentInParent<BaseScript>();
+                target.health = Mathf.Clamp(target.health - attackDamage, 0, target.maxHealth);
+                target.slider.value = target.health;
+
+            } else {
+                CharacterScript target = targetToDamage.GetComponentInParent<CharacterScript>();
+                target.health = Mathf.Clamp(target.health - attackDamage, 0, target.data.health);
+                target.slider.value = target.health;
+            }
+
+                yield return new WaitForSeconds(attackSpeed);
         }
 
         isAttacking = false;
-        enemyToHit = null;
+        targetToDamage = null;
     }
 
     private IEnumerator ApplyDamageRanged() {
-        while (enemyToHit != null && enemyToHit.health > 0) {
+        while (targetToDamage != null && IsTargetAlive()) {
             GameObject bullet = Instantiate(bulletPrefab, firePosition.transform.position, firePosition.transform.rotation);
 
             bullet.GetComponent<BulletScript>().character = this;
 
             float bulletSpeed = 10f;
-            Vector3 direction = (enemyToHit.transform.position - transform.position).normalized;
+            Vector3 direction = (targetToDamage.transform.position - transform.position).normalized;
             bullet.GetComponent<Rigidbody>().linearVelocity = direction * bulletSpeed;
 
             yield return new WaitForSeconds(attackSpeed);
         }
 
         isAttacking = false;
-        enemyToHit = null;
+        targetToDamage = null;
     }
 
     private void OnTriggerExit(Collider other) {

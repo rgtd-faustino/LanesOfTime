@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Character
   - WorldLimit
+  - CharacterLeft
+  - CharacterRight
+  - BaseLeft
+  - BaseRight
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - Water
   - UI
   - Bullet
-  - 
-  - 
+  - CharacterLeft
+  - CharacterRight
   - 
   - 
   - 

@@ -5,7 +5,8 @@ public class BaseScript : MonoBehaviour
 {
     [HideInInspector] public float health;
     [HideInInspector] public float maxHealth;
-    [HideInInspector] public Slider slider;
+    public Slider slider;
+    [SerializeField] private GameObject castle;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,13 +14,16 @@ public class BaseScript : MonoBehaviour
     {
         maxHealth = 100f;
         health = maxHealth;
-        slider = GetComponentInChildren<Slider>();
         slider.maxValue = maxHealth;
+        slider.value = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (health == 0) {
+            Destroy(gameObject);
+            Destroy(castle);
+        }
     }
 }

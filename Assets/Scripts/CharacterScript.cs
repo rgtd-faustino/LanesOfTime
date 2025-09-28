@@ -94,7 +94,7 @@ public class CharacterScript : MonoBehaviour
     private IEnumerator ApplyDamageMelee() {
         while (targetToDamage != null && IsTargetAlive()) {
             if (isTargetingBase) {
-                BaseScript target = targetToDamage.GetComponentInParent<BaseScript>();
+                BaseScript target = targetToDamage.GetComponent<BaseScript>();
                 target.health = Mathf.Clamp(target.health - attackDamage, 0, target.maxHealth);
                 target.slider.value = target.health;
 
@@ -104,7 +104,7 @@ public class CharacterScript : MonoBehaviour
                 target.slider.value = target.health;
             }
 
-                yield return new WaitForSeconds(attackSpeed);
+            yield return new WaitForSeconds(attackSpeed);
         }
 
         isAttacking = false;

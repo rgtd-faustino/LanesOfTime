@@ -19,16 +19,14 @@ public class UIManager : MonoBehaviour {
         GameManager.Instance.ChangeLaneToDeploy(false, lane);
     }
 
-    public void SpawnCharacter(bool isLeft) {
-        GameManager.Instance.SpawnCharacter(isLeft);
-    }
-
     public void ChangeCharacterTypeLeft(string characterType) {
         GameManager.Instance.characterTypeLeft = characterType;
+        GameManager.Instance.SpawnCharacter(true);
 
     }
 
     public void ChangeCharacterTypeRight(string characterType) {
         GameManager.Instance.characterTypeRight = characterType;
+        GameManager.Instance.SpawnCharacter(false);
     }
 }

@@ -9,6 +9,10 @@ public class BulletScript : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        if (other.gameObject != character.targetToDamage) {
+            return;
+        }
+
         if (character.isTargetingBase) {
             BaseScript target = other.gameObject.GetComponent<BaseScript>();
 

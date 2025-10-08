@@ -85,9 +85,16 @@ public class Spawner : MonoBehaviour {
         }
 
 
-        if (PlayerScript.Instance.coinsAmount >= charactersForEras[currentEra][characterType].value) {
-            PlayerScript.Instance.TakeCoins(charactersForEras[currentEra][characterType].value);
-            UIManager.Instance.UpdateTroopButtons(charactersForEras, currentEra, characterType);
+        if (PlayerScript.Instance.coinsAmountP1 >= charactersForEras[currentEra][characterType].value) {
+            if (isLeftSide) {
+                PlayerScript.Instance.TakeCoinsP1(charactersForEras[currentEra][characterType].value);
+                UIManager.Instance.UpdateTroopButtons(true, charactersForEras, currentEra, characterType);
+
+            } else {
+                PlayerScript.Instance.TakeCoinsP2(charactersForEras[currentEra][characterType].value);
+                UIManager.Instance.UpdateTroopButtons(false, charactersForEras, currentEra, characterType);
+            }
+
         }
     }
 }

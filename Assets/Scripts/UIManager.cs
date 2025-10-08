@@ -21,28 +21,57 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public void UpdateTroopButtons(Dictionary<string, Dictionary<string, (GameObject prefab, int value)>> prefabCost, string currentEra, string characterType) {
-        if(PlayerScript.Instance.coinsAmount < prefabCost[currentEra][characterType].value) {
-            meleeButtonLeft.interactable = false;
-            rangedButtonLeft.interactable = false;
-            specialButtonLeft.interactable = false;
+    public void UpdateTroopButtons(bool isLeftSide, 
+        Dictionary<string, Dictionary<string, (GameObject prefab, int value)>> prefabCost, string currentEra, string characterType) {
 
-        } else if(PlayerScript.Instance.coinsAmount < prefabCost[currentEra][characterType].value) {
-            meleeButtonLeft.interactable = true;
-            rangedButtonLeft.interactable = false;
-            specialButtonLeft.interactable = false;
+        if (isLeftSide) {
+            if (PlayerScript.Instance.coinsAmountP1 < prefabCost[currentEra][characterType].value) {
+                meleeButtonLeft.interactable = false;
+                rangedButtonLeft.interactable = false;
+                specialButtonLeft.interactable = false;
+
+            } else if (PlayerScript.Instance.coinsAmountP1 < prefabCost[currentEra][characterType].value) {
+                meleeButtonLeft.interactable = true;
+                rangedButtonLeft.interactable = false;
+                specialButtonLeft.interactable = false;
 
 
-        } else if (PlayerScript.Instance.coinsAmount < prefabCost[currentEra][characterType].value) {
-            meleeButtonLeft.interactable = true;
-            rangedButtonLeft.interactable = true;
-            specialButtonLeft.interactable = false;
+            } else if (PlayerScript.Instance.coinsAmountP1 < prefabCost[currentEra][characterType].value) {
+                meleeButtonLeft.interactable = true;
+                rangedButtonLeft.interactable = true;
+                specialButtonLeft.interactable = false;
 
-        } else if (PlayerScript.Instance.coinsAmount >= prefabCost[currentEra][characterType].value) {
-            meleeButtonLeft.interactable = true;
-            rangedButtonLeft.interactable = true;
-            specialButtonLeft.interactable = true;
+            } else if (PlayerScript.Instance.coinsAmountP1 >= prefabCost[currentEra][characterType].value) {
+                meleeButtonLeft.interactable = true;
+                rangedButtonLeft.interactable = true;
+                specialButtonLeft.interactable = true;
+            }
+
+        } else {
+            if (PlayerScript.Instance.coinsAmountP2 < prefabCost[currentEra][characterType].value) {
+                meleeButtonRight.interactable = false;
+                rangedButtonRight.interactable = false;
+                specialButtonRight.interactable = false;
+
+            } else if (PlayerScript.Instance.coinsAmountP2 < prefabCost[currentEra][characterType].value) {
+                meleeButtonRight.interactable = true;
+                rangedButtonRight.interactable = false;
+                specialButtonRight.interactable = false;
+
+
+            } else if (PlayerScript.Instance.coinsAmountP2 < prefabCost[currentEra][characterType].value) {
+                meleeButtonRight.interactable = true;
+                rangedButtonRight.interactable = true;
+                specialButtonRight.interactable = false;
+
+            } else if (PlayerScript.Instance.coinsAmountP2 >= prefabCost[currentEra][characterType].value) {
+                meleeButtonRight.interactable = true;
+                rangedButtonRight.interactable = true;
+                specialButtonRight.interactable = true;
+            }
         }
+
+
 
     }
 

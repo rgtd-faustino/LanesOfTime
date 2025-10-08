@@ -14,13 +14,15 @@ public class GameManager : MonoBehaviour {
     public Sprite buttonOffRight;
     public Sprite buttonOffLeft;
 
+    // informações do boneco e lane onde fazer o spawn
     [HideInInspector] public string currentEraLeft;
     [HideInInspector] public string currentEraRight;
     [HideInInspector] public string characterTypeLeft = "";
     [HideInInspector] public string characterTypeRight = "";
-
     [HideInInspector] public int laneToDeployLeft = 0;
     [HideInInspector] public int laneToDeployRight = 0;
+
+    public bool isCampaign = false; // meter isto a ser definido pelo menu ao clicar no botão de 1v1 ou campanha
 
     public static GameManager Instance;
 

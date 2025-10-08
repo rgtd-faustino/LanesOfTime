@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public int laneToDeployLeft = 0;
     [HideInInspector] public int laneToDeployRight = 0;
 
-
     public static GameManager Instance;
 
     public void Awake() {

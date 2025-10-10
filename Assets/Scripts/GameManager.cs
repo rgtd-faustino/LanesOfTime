@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public int laneToDeployLeft = 0;
     [HideInInspector] public int laneToDeployRight = 0;
 
-    public bool isCampaign = false; // meter isto a ser definido pelo menu ao clicar no botão de 1v1 ou campanha
 
     public static GameManager Instance;
 

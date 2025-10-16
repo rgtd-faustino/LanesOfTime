@@ -9,6 +9,7 @@ public class MenuUI : MonoBehaviour {
     public GameObject upgradesUI;
     public GameObject menuUI;
     public GameObject collectionUI;
+    public GameObject campaignUI;
 
 
 
@@ -45,16 +46,27 @@ public class MenuUI : MonoBehaviour {
                 upgradesUI.SetActive(false);
                 menuUI.SetActive(true);
                 break;
+            case 2:
+                campaignUI.SetActive(false);
+                menuUI.SetActive(true);
+                break;
         }
     }
 
     public void PlayCampaign() {
+        menuUI.SetActive(false);
+        campaignUI.SetActive(true);
+    }
+
+    public void PlayLevel(int level) {
         GameStateManager.Instance.isCampaign = true;
+        GameStateManager.Instance.levelDifficulty = level;
         SceneManager.LoadScene("GameplayScene");
     }
 
     public void Play1v1() {
         GameStateManager.Instance.isCampaign = false;
+        GameStateManager.Instance.levelDifficulty = -1;
         SceneManager.LoadScene("GameplayScene");
     }
 

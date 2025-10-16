@@ -13,11 +13,21 @@ public class UIManager : MonoBehaviour {
     public Button rangedButtonRight;
     public Button specialButtonRight;
 
+    public GameObject rightButtons; // right buttons não incluindo as stats também por enquanto
+
     public void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(gameObject);
         } else {
             Instance = this;
+        }
+    }
+
+    public void Start() {
+        if (GameStateManager.Instance.isCampaign) {
+            rightButtons.SetActive(false);
+        } else {
+            rightButtons.SetActive(true);
         }
     }
 

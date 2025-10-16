@@ -1,13 +1,15 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
 
 
-    public bool isCampaign = false;
+    public bool isCampaign = false; 
+    [HideInInspector] public int levelDifficulty;
 
 
-
+    public event System.Action<bool, int> OnGameSceneLoaded;
 
     public static GameStateManager Instance;
 
@@ -17,6 +19,7 @@ public class GameStateManager : MonoBehaviour
 
         } else {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 

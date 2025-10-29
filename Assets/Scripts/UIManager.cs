@@ -31,58 +31,24 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public void UpdateTroopButtons(bool isLeftSide, 
-        Dictionary<string, Dictionary<string, (GameObject prefab, int value)>> prefabCost, string currentEra, string characterType) {
+    public void UpdateTroopButtons(bool isLeftSide, Dictionary<string, Dictionary<string, GameObject>> prefabsCost, string currentEra) {
+        // costs for each troop's type according to the current era
+        int meleeCost = prefabsCost[currentEra]["Melee"].GetComponent<CharacterScript>().data.value;
+        int rangedCost = prefabsCost[currentEra]["Ranged"].GetComponent<CharacterScript>().data.value;
+        int specialCost = prefabsCost[currentEra]["Special"].GetComponent<CharacterScript>().data.value;
 
+        // if there are more coins than the value of the cost then the player can spawn the troop
         if (isLeftSide) {
-            if (PlayerScript.Instance.coinsAmountP1 < prefabCost[currentEra][characterType].value) {
-                meleeButtonLeft.interactable = false;
-                rangedButtonLeft.interactable = false;
-                specialButtonLeft.interactable = false;
-
-            } else if (PlayerScript.Instance.coinsAmountP1 < prefabCost[currentEra][characterType].value) {
-                meleeButtonLeft.interactable = true;
-                rangedButtonLeft.interactable = false;
-                specialButtonLeft.interactable = false;
-
-
-            } else if (PlayerScript.Instance.coinsAmountP1 < prefabCost[currentEra][characterType].value) {
-                meleeButtonLeft.interactable = true;
-                rangedButtonLeft.interactable = true;
-                specialButtonLeft.interactable = false;
-
-            } else if (PlayerScript.Instance.coinsAmountP1 >= prefabCost[currentEra][characterType].value) {
-                meleeButtonLeft.interactable = true;
-                rangedButtonLeft.interactable = true;
-                specialButtonLeft.interactable = true;
-            }
-
+            int coins = PlayerScript.Instance.coinsAmountP1;
+            meleeButtonLeft.interactable = coins >= meleeCost;
+            rangedButtonLeft.interactable = coins >= rangedCost;
+            specialButtonLeft.interactable = coins >= specialCost;
         } else {
-            if (PlayerScript.Instance.coinsAmountP2 < prefabCost[currentEra][characterType].value) {
-                meleeButtonRight.interactable = false;
-                rangedButtonRight.interactable = false;
-                specialButtonRight.interactable = false;
-
-            } else if (PlayerScript.Instance.coinsAmountP2 < prefabCost[currentEra][characterType].value) {
-                meleeButtonRight.interactable = true;
-                rangedButtonRight.interactable = false;
-                specialButtonRight.interactable = false;
-
-
-            } else if (PlayerScript.Instance.coinsAmountP2 < prefabCost[currentEra][characterType].value) {
-                meleeButtonRight.interactable = true;
-                rangedButtonRight.interactable = true;
-                specialButtonRight.interactable = false;
-
-            } else if (PlayerScript.Instance.coinsAmountP2 >= prefabCost[currentEra][characterType].value) {
-                meleeButtonRight.interactable = true;
-                rangedButtonRight.interactable = true;
-                specialButtonRight.interactable = true;
-            }
+            int coins = PlayerScript.Instance.coinsAmountP2;
+            meleeButtonRight.interactable = coins >= meleeCost;
+            rangedButtonRight.interactable = coins >= rangedCost;
+            specialButtonRight.interactable = coins >= specialCost;
         }
-
-
-
     }
 
     public void LaneToDeployLeft(int lane) {

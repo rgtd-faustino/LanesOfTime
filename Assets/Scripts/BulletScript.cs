@@ -30,6 +30,14 @@ public class BulletScript : MonoBehaviour
                 target.health = Mathf.Clamp(target.health - character.attackDamage, 0, target.data.health);
                 target.slider.value = target.health;
 
+                if (target.health == 0) {
+                    character.targetsInLine.RemoveAt(0);
+                    if (character.targetsInLine.Count != 0)
+                        character.targetToDamage = character.targetsInLine[0];
+                    else
+                        character.targetToDamage = null;
+                }
+
                 Destroy(gameObject);
             }
         }

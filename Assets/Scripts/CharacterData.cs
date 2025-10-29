@@ -6,4 +6,6 @@ public class CharacterData : ScriptableObject {
     public float speed;
     public float attack;
     public float attackSpeed;
+    public int value;
+    public int experience;
 }

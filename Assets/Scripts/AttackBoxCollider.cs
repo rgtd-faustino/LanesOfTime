@@ -1,8 +1,8 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AttackBoxCollider : MonoBehaviour
-{
+public class AttackBoxCollider : MonoBehaviour {
     CharacterScript character;
 
     private void Start() {
@@ -10,42 +10,55 @@ public class AttackBoxCollider : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.GetComponentInParent<CharacterScript>() &&
-            other.gameObject.GetComponentInParent<CharacterScript>().direction != character.direction &&
+        // is this is an enemy character?
+        CharacterScript otherChar = other.gameObject.GetComponentInParent<CharacterScript>();
+
+        if (otherChar != null && otherChar.direction != character.direction &&
             (other.gameObject.CompareTag("CharacterLeft") || other.gameObject.CompareTag("CharacterRight"))) {
 
-            // if a singular character starts attacking 2 characters, instead of attacking once it will attack twice because there are two colliders hence the 
-            // coroutine is called twice, so we must check if we're not attacking before starting an attack
-            if (character.isAttacking == false) {
-                character.isAttacking = true;
-                character.targetToDamage = other.gameObject;
+            character.targetsInLine.Add(other.gameObject);
+
+            // if it's currently attacking the base then prioritize the enemy troop
+            if (character.isTargetingBase) {
+                // first we remove the base from the targets list
+                foreach (GameObject target in character.targetsInLine) {
+                    if (target.GetComponent<BaseScript>() != null) {
+                        character.targetsInLine.Remove(target);
+                        break;
+                    }
+                }
+
+                // and then stop the current attack to start attacking the enemy
+                character.StopAllCoroutines();
                 character.isTargetingBase = false;
+                character.targetToDamage = other.gameObject;
+                character.isAttacking = true;
                 character.HitEnemy();
 
-                // if the target is focusing the base but a character spawns in front of it then it must focus the character that spawned, we stop the current
-                // attack and realign the target
-            } else if (character.isTargetingBase) {
-                character.StopAllCoroutines();
-                character.isAttacking = true;
+
+            } else if (character.isAttacking == false) { // if not attacking at all then start attacking this enemy
                 character.targetToDamage = other.gameObject;
                 character.isTargetingBase = false;
+                character.isAttacking = true;
                 character.HitEnemy();
             }
 
 
-            // if the ranged character is going forward, starts attacking another character but for some reason it's also in range
-            // of the base, then it'll focus the base 'cause it's the last gameObject entering its attack box collider
-            // so we need to also take into consideration that we must focus the initial target
-        } else if (character.isAttacking == false && other.gameObject.GetComponent<BaseScript>() &&
-            ((other.gameObject.CompareTag("BaseLeft") && character.direction == -1) ||
-            (other.gameObject.CompareTag("BaseRight") && character.direction == 1))) {
+            // if it's already attacking an enemy we don't do anything so the character kills the current target and then moves onto the new enemy that was added to the list
 
-            character.isAttacking = true;
-            character.targetToDamage = other.gameObject;
-            character.isTargetingBase = true;
-            character.HitEnemy();
+
+        } else if (other.gameObject.GetComponent<BaseScript>() != null &&
+                 ((other.gameObject.CompareTag("BaseLeft") && character.direction == -1) ||
+                  (other.gameObject.CompareTag("BaseRight") && character.direction == 1))) { // or is it the enemy base?
+
+            // only attack the base if not already attacking something
+            if (character.isAttacking == false) {
+                character.targetsInLine.Add(other.gameObject);
+                character.targetToDamage = other.gameObject;
+                character.isTargetingBase = true;
+                character.isAttacking = true;
+                character.HitEnemy();
+            }
         }
-
-
     }
 }

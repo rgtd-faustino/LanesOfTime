@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour {
-    public Dictionary<string, Dictionary<string, (GameObject prefab, int value)>> charactersForEras  = new();
-
+    public Dictionary<string, Dictionary<string, GameObject>> charactersForEras  = new();
 
     public int laneNumber;
     public bool isLeftSide;
@@ -22,20 +21,20 @@ public class Spawner : MonoBehaviour {
     public GameObject SpecialPrefabEra3;
 
     void Start() {
-        charactersForEras["Era1"] = new Dictionary<string, (GameObject prefab, int value)>() {
-            { "Melee", (MeleePrefabEra1, 5) },
-            { "Ranged", (RangedPrefabEra1, 7) },
-            { "Special", (SpecialPrefabEra1, 10) }
+        charactersForEras["Era1"] = new Dictionary<string, GameObject>() {
+            { "Melee", MeleePrefabEra1 },
+            { "Ranged", RangedPrefabEra1 },
+            { "Special", SpecialPrefabEra1 }
         };
-            charactersForEras["Era2"] = new Dictionary<string, (GameObject prefab, int value)>() {
-            { "Melee", (MeleePrefabEra2, 5) },
-            { "Ranged", (RangedPrefabEra2, 7) },
-            { "Special", (SpecialPrefabEra2, 10) }
+            charactersForEras["Era2"] = new Dictionary<string, GameObject>() {
+            { "Melee", MeleePrefabEra2 },
+            { "Ranged", RangedPrefabEra2 },
+            { "Special", SpecialPrefabEra2 }
         };
-            charactersForEras["Era3"] = new Dictionary<string, (GameObject prefab, int value)>() {
-            { "Melee", (MeleePrefabEra3, 5) },
-            { "Ranged", (RangedPrefabEra3, 7) },
-            { "Special", (SpecialPrefabEra3, 10) }
+            charactersForEras["Era3"] = new Dictionary<string, GameObject>() {
+            { "Melee", MeleePrefabEra3 },
+            { "Ranged", RangedPrefabEra3 },
+            { "Special", SpecialPrefabEra3 }
         };
     }
 
@@ -52,7 +51,9 @@ public class Spawner : MonoBehaviour {
             currentEra = GameManager.Instance.currentEraRight;
         }
 
-        CharacterScript characterScript = Instantiate(charactersForEras[currentEra][characterType].prefab, transform.position, transform.rotation).GetComponent<CharacterScript>();
+        GameObject prefab = charactersForEras[currentEra][characterType];
+
+        CharacterScript characterScript = Instantiate(prefab, transform.position, transform.rotation).GetComponent<CharacterScript>();
         characterScript.type = characterType;
 
         if (isLeftSide) {
@@ -84,17 +85,13 @@ public class Spawner : MonoBehaviour {
                 break;
         }
 
-
-        if (PlayerScript.Instance.coinsAmountP1 >= charactersForEras[currentEra][characterType].value) {
-            if (isLeftSide) {
-                PlayerScript.Instance.TakeCoinsP1(charactersForEras[currentEra][characterType].value);
-                UIManager.Instance.UpdateTroopButtons(true, charactersForEras, currentEra, characterType);
-
-            } else {
-                PlayerScript.Instance.TakeCoinsP2(charactersForEras[currentEra][characterType].value);
-                UIManager.Instance.UpdateTroopButtons(false, charactersForEras, currentEra, characterType);
-            }
-
-        }
+        // the character script was instanced on this frame so the start method will only be called the next frame
+        // but i can call the prefab and use that instead
+        //PlayerScript.Instance.ChangeCoins(isLeftSide, - characterScript.value);
+        CharacterData characterData = prefab.GetComponent<CharacterScript>().data;
+        int value = characterData.value;
+        
+        PlayerScript.Instance.ChangeCoins(isLeftSide, - value);
+        UIManager.Instance.UpdateTroopButtons(isLeftSide, charactersForEras, currentEra);
     }
 }

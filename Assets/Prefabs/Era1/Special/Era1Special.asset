@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a7dc963e7b7c948bc652238c170429, type: 3}
   m_Name: Era1Special
   m_EditorClassIdentifier: 
-  type: 
-  era: 
   health: 0
   speed: 0
   attack: 0
-  prefabMesh: {fileID: 0}
+  attackSpeed: 0
+  value: 10
+  experience: 150

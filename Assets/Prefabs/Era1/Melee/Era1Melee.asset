@@ -16,3 +16,5 @@ MonoBehaviour:
   speed: 2
   attack: 10
   attackSpeed: 0.1
+  value: 5
+  experience: 100

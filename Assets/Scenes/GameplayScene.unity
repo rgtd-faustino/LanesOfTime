@@ -449,8 +449,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsTextP1: {fileID: 614123992}
   coinsAmountP1: 0
+  sliderP1: {fileID: 275813137}
   coinsTextP2: {fileID: 492837671}
   coinsAmountP2: 0
+  sliderP2: {fileID: 957492813}
 --- !u!1 &54332543
 GameObject:
   m_ObjectHideFlags: 0

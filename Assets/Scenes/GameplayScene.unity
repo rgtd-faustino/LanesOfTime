@@ -348,7 +348,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 23677876}
   m_OnClick:
     m_PersistentCalls:
@@ -449,10 +449,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsTextP1: {fileID: 614123992}
   coinsAmountP1: 0
-  sliderP1: {fileID: 275813137}
+  EXPTextP1: {fileID: 732889782}
+  sliderEXPP1: {fileID: 275813139}
   coinsTextP2: {fileID: 492837671}
   coinsAmountP2: 0
-  sliderP2: {fileID: 957492813}
+  sliderEXPP2: {fileID: 957492815}
+  EXPTextP2: {fileID: 523079119}
 --- !u!1 &54332543
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,15 +4118,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 4
   isLeftSide: 1
-  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
-  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
-  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
-  MeleePrefabEra2: {fileID: 0}
-  RangedPrefabEra2: {fileID: 0}
-  SpecialPrefabEra2: {fileID: 0}
-  MeleePrefabEra3: {fileID: 0}
-  RangedPrefabEra3: {fileID: 0}
-  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &637188848
 GameObject:
   m_ObjectHideFlags: 0
@@ -4267,15 +4260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 3
   isLeftSide: 0
-  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
-  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
-  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
-  MeleePrefabEra2: {fileID: 0}
-  RangedPrefabEra2: {fileID: 0}
-  SpecialPrefabEra2: {fileID: 0}
-  MeleePrefabEra3: {fileID: 0}
-  RangedPrefabEra3: {fileID: 0}
-  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &647291017
 GameObject:
   m_ObjectHideFlags: 0
@@ -4380,15 +4364,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 3
   isLeftSide: 1
-  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
-  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
-  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
-  MeleePrefabEra2: {fileID: 0}
-  RangedPrefabEra2: {fileID: 0}
-  SpecialPrefabEra2: {fileID: 0}
-  MeleePrefabEra3: {fileID: 0}
-  RangedPrefabEra3: {fileID: 0}
-  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &649170416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5636,7 +5611,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 873946772}
   m_OnClick:
     m_PersistentCalls:
@@ -5905,7 +5880,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 889595383}
   m_OnClick:
     m_PersistentCalls:
@@ -6064,15 +6039,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 4
   isLeftSide: 0
-  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
-  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
-  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
-  MeleePrefabEra2: {fileID: 0}
-  RangedPrefabEra2: {fileID: 0}
-  SpecialPrefabEra2: {fileID: 0}
-  MeleePrefabEra3: {fileID: 0}
-  RangedPrefabEra3: {fileID: 0}
-  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &909638698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6691,15 +6657,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 2
   isLeftSide: 0
-  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
-  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
-  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
-  MeleePrefabEra2: {fileID: 0}
-  RangedPrefabEra2: {fileID: 0}
-  SpecialPrefabEra2: {fileID: 0}
-  MeleePrefabEra3: {fileID: 0}
-  RangedPrefabEra3: {fileID: 0}
-  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &976344863
 GameObject:
   m_ObjectHideFlags: 0
@@ -6778,7 +6735,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 976344866}
   m_OnClick:
     m_PersistentCalls:
@@ -7824,15 +7781,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 2
   isLeftSide: 1
-  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
-  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
-  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
-  MeleePrefabEra2: {fileID: 0}
-  RangedPrefabEra2: {fileID: 0}
-  SpecialPrefabEra2: {fileID: 0}
-  MeleePrefabEra3: {fileID: 0}
-  RangedPrefabEra3: {fileID: 0}
-  SpecialPrefabEra3: {fileID: 0}
 --- !u!1 &1198573388
 GameObject:
   m_ObjectHideFlags: 0
@@ -7911,7 +7859,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1198573391}
   m_OnClick:
     m_PersistentCalls:
@@ -8508,15 +8456,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 1
   isLeftSide: 1
-  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
-  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
-  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
-  MeleePrefabEra2: {fileID: 0}
-  RangedPrefabEra2: {fileID: 0}
-  SpecialPrefabEra2: {fileID: 0}
-  MeleePrefabEra3: {fileID: 0}
-  RangedPrefabEra3: {fileID: 0}
-  SpecialPrefabEra3: {fileID: 0}
 --- !u!23 &1295434106
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9520,15 +9459,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 0
   isLeftSide: 0
-  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
-  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
-  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
-  MeleePrefabEra2: {fileID: 0}
-  RangedPrefabEra2: {fileID: 0}
-  SpecialPrefabEra2: {fileID: 0}
-  MeleePrefabEra3: {fileID: 0}
-  RangedPrefabEra3: {fileID: 0}
-  SpecialPrefabEra3: {fileID: 0}
 --- !u!23 &1464594978
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10751,7 +10681,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1847599424}
   m_OnClick:
     m_PersistentCalls:
@@ -11771,15 +11701,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 1
   isLeftSide: 0
-  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
-  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
-  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
-  MeleePrefabEra2: {fileID: 0}
-  RangedPrefabEra2: {fileID: 0}
-  SpecialPrefabEra2: {fileID: 0}
-  MeleePrefabEra3: {fileID: 0}
-  RangedPrefabEra3: {fileID: 0}
-  SpecialPrefabEra3: {fileID: 0}
 --- !u!23 &2059558672
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11884,15 +11805,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneNumber: 0
   isLeftSide: 1
-  MeleePrefabEra1: {fileID: 4175471191007934924, guid: 31254a8a40181304fb08b2417c677246, type: 3}
-  RangedPrefabEra1: {fileID: 4175471191007934924, guid: b218142492aae4441be4c97a4a9c6d84, type: 3}
-  SpecialPrefabEra1: {fileID: 4175471191007934924, guid: 10ed8a7f714a1b1449b478104799b4a7, type: 3}
-  MeleePrefabEra2: {fileID: 0}
-  RangedPrefabEra2: {fileID: 0}
-  SpecialPrefabEra2: {fileID: 0}
-  MeleePrefabEra3: {fileID: 0}
-  RangedPrefabEra3: {fileID: 0}
-  SpecialPrefabEra3: {fileID: 0}
 --- !u!23 &2060877532
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12021,6 +11933,15 @@ MonoBehaviour:
   buttonOnLeft: {fileID: 21300000, guid: faec833aaa8d6824f82271ba9372bd3b, type: 3}
   buttonOffRight: {fileID: 21300000, guid: e56baad6607a827499b7976ad3fd38e6, type: 3}
   buttonOffLeft: {fileID: 21300000, guid: 8252221e0bad5aa4ab70b2eee9fe6ad6, type: 3}
+  MeleePrefabEra1: {fileID: 2754137595618491140, guid: b869b40b17aa808499cd92ee3c9ff992, type: 3}
+  RangedPrefabEra1: {fileID: 1441316427438533188, guid: a5db28eb1b86f6249aceb23ff838eae1, type: 3}
+  SpecialPrefabEra1: {fileID: 913426188970915295, guid: bb9ceff6d7e96334582dc742b69c377c, type: 3}
+  MeleePrefabEra2: {fileID: 0}
+  RangedPrefabEra2: {fileID: 0}
+  SpecialPrefabEra2: {fileID: 0}
+  MeleePrefabEra3: {fileID: 0}
+  RangedPrefabEra3: {fileID: 0}
+  SpecialPrefabEra3: {fileID: 0}
   currentEraLeft: 
   currentEraRight: 
   characterTypeLeft: 

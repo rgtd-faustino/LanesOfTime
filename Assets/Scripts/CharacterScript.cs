@@ -42,6 +42,7 @@ public class CharacterScript : MonoBehaviour {
         attackDamage = data.attack;
         value = data.value;
         experience = data.experience;
+        type = data.type;
         attackCollider = GetComponentInChildren<BoxCollider>();
         slider = GetComponentInChildren<Slider>();
         slider.maxValue = health;

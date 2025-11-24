@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+
     public void UpdateTroopButtons(bool isLeftSide, Dictionary<string, Dictionary<string, GameObject>> prefabsCost, string currentEra) {
         // costs for each troop's type according to the current era
         int meleeCost = prefabsCost[currentEra]["Melee"].GetComponent<CharacterScript>().data.value;

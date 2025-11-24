@@ -3,39 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour {
-    public Dictionary<string, Dictionary<string, GameObject>> charactersForEras  = new();
 
     public int laneNumber;
     public bool isLeftSide;
 
-    public GameObject MeleePrefabEra1;
-    public GameObject RangedPrefabEra1;
-    public GameObject SpecialPrefabEra1;
 
-    public GameObject MeleePrefabEra2;
-    public GameObject RangedPrefabEra2;
-    public GameObject SpecialPrefabEra2;
-
-    public GameObject MeleePrefabEra3;
-    public GameObject RangedPrefabEra3;
-    public GameObject SpecialPrefabEra3;
 
     void Start() {
-        charactersForEras["Era1"] = new Dictionary<string, GameObject>() {
-            { "Melee", MeleePrefabEra1 },
-            { "Ranged", RangedPrefabEra1 },
-            { "Special", SpecialPrefabEra1 }
-        };
-            charactersForEras["Era2"] = new Dictionary<string, GameObject>() {
-            { "Melee", MeleePrefabEra2 },
-            { "Ranged", RangedPrefabEra2 },
-            { "Special", SpecialPrefabEra2 }
-        };
-            charactersForEras["Era3"] = new Dictionary<string, GameObject>() {
-            { "Melee", MeleePrefabEra3 },
-            { "Ranged", RangedPrefabEra3 },
-            { "Special", SpecialPrefabEra3 }
-        };
+
     }
 
     public void SpawnCharacter() {
@@ -51,23 +26,23 @@ public class Spawner : MonoBehaviour {
             currentEra = GameManager.Instance.currentEraRight;
         }
 
-        GameObject prefab = charactersForEras[currentEra][characterType];
-
+        GameObject prefab = GameManager.Instance.charactersForEras[currentEra][characterType];
         CharacterScript characterScript = Instantiate(prefab, transform.position, transform.rotation).GetComponent<CharacterScript>();
-        characterScript.type = characterType;
 
         if (isLeftSide) {
             characterScript.gameObject.tag = "CharacterLeft";
             characterScript.gameObject.layer = LayerMask.NameToLayer("CharacterLeft");
+            characterScript.transform.rotation = Quaternion.Euler(0, 90, 0);
 
         } else {
             characterScript.gameObject.tag = "CharacterRight";
             characterScript.gameObject.layer = LayerMask.NameToLayer("CharacterRight");
+            characterScript.transform.rotation = Quaternion.Euler(0, -90, 0);
         }
 
         characterScript.direction = isLeftSide ? 1 : -1;
 
-        switch (laneNumber) {
+        /*switch (laneNumber) {
             case 0:
                 characterScript.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                 break;
@@ -83,7 +58,7 @@ public class Spawner : MonoBehaviour {
             case 4:
                 characterScript.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                 break;
-        }
+        }*/
 
         // the character script was instanced on this frame so the start method will only be called the next frame
         // but i can call the prefab and use that instead
@@ -92,6 +67,6 @@ public class Spawner : MonoBehaviour {
         int value = characterData.value;
         
         PlayerScript.Instance.ChangeCoins(isLeftSide, - value);
-        UIManager.Instance.UpdateTroopButtons(isLeftSide, charactersForEras, currentEra);
+
     }
 }

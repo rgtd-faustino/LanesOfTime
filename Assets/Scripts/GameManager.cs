@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,19 @@ public class GameManager : MonoBehaviour {
     public Sprite buttonOnLeft;
     public Sprite buttonOffRight;
     public Sprite buttonOffLeft;
+
+    public Dictionary<string, Dictionary<string, GameObject>> charactersForEras = new();
+    public GameObject MeleePrefabEra1;
+    public GameObject RangedPrefabEra1;
+    public GameObject SpecialPrefabEra1;
+
+    public GameObject MeleePrefabEra2;
+    public GameObject RangedPrefabEra2;
+    public GameObject SpecialPrefabEra2;
+
+    public GameObject MeleePrefabEra3;
+    public GameObject RangedPrefabEra3;
+    public GameObject SpecialPrefabEra3;
 
     // informações do boneco e lane onde fazer o spawn
     [HideInInspector] public string currentEraLeft;
@@ -36,6 +50,22 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
+        charactersForEras["Era1"] = new Dictionary<string, GameObject>() {
+            { "Melee", MeleePrefabEra1 },
+            { "Ranged", RangedPrefabEra1 },
+            { "Special", SpecialPrefabEra1 }
+        };
+        charactersForEras["Era2"] = new Dictionary<string, GameObject>() {
+            { "Melee", MeleePrefabEra2 },
+            { "Ranged", RangedPrefabEra2 },
+            { "Special", SpecialPrefabEra2 }
+        };
+        charactersForEras["Era3"] = new Dictionary<string, GameObject>() {
+            { "Melee", MeleePrefabEra3 },
+            { "Ranged", RangedPrefabEra3 },
+            { "Special", SpecialPrefabEra3 }
+        };
+
         currentEraLeft = "Era1";
         currentEraRight = "Era1";
 

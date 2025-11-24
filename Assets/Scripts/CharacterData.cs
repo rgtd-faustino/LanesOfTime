@@ -8,4 +8,5 @@ public class CharacterData : ScriptableObject {
     public float attackSpeed;
     public int value;
     public int experience;
+    public string type;
 }

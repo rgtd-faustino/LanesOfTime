@@ -11,12 +11,16 @@ public class PlayerScript : MonoBehaviour
     public TextMeshProUGUI EXPTextP1;
     private int experienceAmountP1;
     public Slider sliderEXPP1;
+    public Slider sliderBaseHPP1;
+    public GameObject baseP1;
 
     // if it's 1v1
     public TextMeshProUGUI coinsTextP2;
     [HideInInspector] public int coinsAmountP2;
-    public Slider sliderEXPP2;
 
+    public GameObject baseP2;
+    public Slider sliderBaseHPP2;
+    public Slider sliderEXPP2;
     public TextMeshProUGUI EXPTextP2;
     private int experienceAmountP2;
 
@@ -48,16 +52,41 @@ public class PlayerScript : MonoBehaviour
     public void ChangeExperience(bool isP1, int n) {
         if (isP1) {
             experienceAmountP1 += n;
+            experienceAmountP1 = Mathf.Clamp(experienceAmountP1, 0, (int)sliderEXPP1.maxValue);
+
             EXPTextP1.text = experienceAmountP1.ToString();
-            sliderEXPP1.GetComponent<Slider>().value = experienceAmountP1;
+            sliderEXPP1.value = experienceAmountP1;
+
+            if (sliderEXPP1.value == sliderEXPP1.maxValue) {
+                UIManager.Instance.ShowChangeBasePopUp(isP1);
+            }
 
         } else {
             experienceAmountP2 += n;
-            EXPTextP2.text = experienceAmountP2.ToString();
-            sliderEXPP2.GetComponent<Slider>().value = experienceAmountP2;
-        }
+            experienceAmountP2 = Mathf.Clamp(experienceAmountP2, 0, (int)sliderEXPP2.maxValue);
 
+            EXPTextP2.text = experienceAmountP2.ToString();
+            sliderEXPP2.value = experienceAmountP2;
+
+            if (sliderEXPP2.value == sliderEXPP2.maxValue) {
+                UIManager.Instance.ShowChangeBasePopUp(isP1);
+            }
+        }
     }
+
+    public void ResetExperience(bool isP1) {
+        if (isP1) {
+            experienceAmountP1 = 0;
+            EXPTextP1.text = "0";
+            sliderEXPP1.value = 0;
+
+        } else {
+            experienceAmountP2 = 0;
+            EXPTextP2.text = "0";
+            sliderEXPP2.value = 0;
+        }
+    }
+
 
     public void ChangeCoins(bool isP1, int n) {
         if (isP1) {

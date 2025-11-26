@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,14 @@ public class GameManager : MonoBehaviour {
     public GameObject MeleePrefabEra3;
     public GameObject RangedPrefabEra3;
     public GameObject SpecialPrefabEra3;
+
+    public GameObject MeleePrefabEra4;
+    public GameObject RangedPrefabEra4;
+    public GameObject SpecialPrefabEra4;
+
+    public GameObject MeleePrefabEra5;
+    public GameObject RangedPrefabEra5;
+    public GameObject SpecialPrefabEra5;
 
     // informações do boneco e lane onde fazer o spawn
     [HideInInspector] public string currentEraLeft;
@@ -64,6 +73,16 @@ public class GameManager : MonoBehaviour {
             { "Melee", MeleePrefabEra3 },
             { "Ranged", RangedPrefabEra3 },
             { "Special", SpecialPrefabEra3 }
+        };
+        charactersForEras["Era4"] = new Dictionary<string, GameObject>() {
+            { "Melee", MeleePrefabEra4 },
+            { "Ranged", RangedPrefabEra4 },
+            { "Special", SpecialPrefabEra4 }
+        };
+        charactersForEras["Era5"] = new Dictionary<string, GameObject>() {
+            { "Melee", MeleePrefabEra5 },
+            { "Ranged", RangedPrefabEra5 },
+            { "Special", SpecialPrefabEra5 }
         };
 
         currentEraLeft = "Era1";
@@ -144,5 +163,47 @@ public class GameManager : MonoBehaviour {
 
         // Now configure your game based on these values
         // e.g., adjust enemy spawning, set up UI, etc.
+    }
+
+
+    public void PauseGame() {
+        Time.timeScale = 0f; // this pauses all time-based operations (movement, timers, animations, physics, etc)
+    }
+
+    public void ResumeGame() {
+        Time.timeScale = 1f; // to resume normal time
+    }
+
+
+    public void SetGameOver(bool timeRanOff) {
+        float p1HP = PlayerScript.Instance.sliderBaseHPP1.value;
+        float p2HP = PlayerScript.Instance.sliderBaseHPP2.value;
+
+        if (timeRanOff) {
+            if (p1HP > p2HP) {
+                Destroy(PlayerScript.Instance.baseP2);
+                UIManager.Instance.SetGameOverInterface(0);
+
+            } else if (p1HP < p2HP) {
+                Destroy(PlayerScript.Instance.baseP1);
+                UIManager.Instance.SetGameOverInterface(1);
+
+            } else if (p1HP == p2HP) {
+                UIManager.Instance.SetGameOverInterface(2);
+            }
+
+        // the bases are already destroyed when they get to 0
+        } else {
+            if (p1HP == 0) {
+                UIManager.Instance.SetGameOverInterface(0);
+
+            } else if (p2HP == 0) {
+                UIManager.Instance.SetGameOverInterface(1);
+            }
+        }
+    }
+
+    public void Update() {
+        SetGameOver(false);
     }
 }

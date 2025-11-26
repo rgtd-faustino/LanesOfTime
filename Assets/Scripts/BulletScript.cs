@@ -9,10 +9,6 @@ public class BulletScript : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject != character.targetToDamage) {
-            return;
-        }
-
         if (character.isTargetingBase) {
             BaseScript target = other.gameObject.GetComponent<BaseScript>();
 
@@ -38,6 +34,24 @@ public class BulletScript : MonoBehaviour
                         character.targetToDamage = null;
                 }
 
+                Destroy(gameObject);
+            }
+
+            LootBox targetBox = other.gameObject.GetComponent<LootBox>();
+            if (targetBox != null) {
+                targetBox.health = Mathf.Clamp(targetBox.health - character.attackDamage, 0, targetBox.maxHealth);
+                targetBox.slider.value = targetBox.health;
+                if (targetBox.health == 0) {
+                    if (targetBox.isGoldBox == 0)
+                        PlayerScript.Instance.ChangeCoins(character.direction == 1, targetBox.goldLoot);
+                    else
+                        PlayerScript.Instance.ChangeExperience(character.direction == 1, targetBox.xpLoot);
+                    character.targetsInLine.RemoveAt(0);
+                    if (character.targetsInLine.Count != 0)
+                        character.targetToDamage = character.targetsInLine[0];
+                    else
+                        character.targetToDamage = null;
+                }
                 Destroy(gameObject);
             }
         }

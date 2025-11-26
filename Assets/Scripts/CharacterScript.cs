@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class CharacterScript : MonoBehaviour {
@@ -101,7 +102,16 @@ public class CharacterScript : MonoBehaviour {
         if (isTargetingBase) {
             return targetToDamage.GetComponent<BaseScript>().health > 0;
         } else {
-            return targetToDamage.GetComponent<CharacterScript>().health > 0;
+            CharacterScript targetChar = targetToDamage.GetComponentInParent<CharacterScript>();
+            LootBox targetBox = targetToDamage.GetComponent<LootBox>();
+
+            if (targetChar != null) {
+                return targetChar.health > 0;
+            } else if (targetBox != null) {
+                return targetBox.health > 0;
+            }
+
+            return false;
         }
     }
 
@@ -124,18 +134,43 @@ public class CharacterScript : MonoBehaviour {
                 target.slider.value = target.health;
 
             } else {
-                CharacterScript target = targetToDamage.GetComponentInParent<CharacterScript>();
-                target.health = Mathf.Clamp(target.health - attackDamage, 0, target.data.health);
-                target.slider.value = target.health;
+                CharacterScript targetChar = targetToDamage.GetComponentInParent<CharacterScript>();
+                LootBox targetBox = targetToDamage.GetComponent<LootBox>();
 
-                if (target.health == 0) {
-                    targetsInLine.RemoveAt(0);
-                    if (targetsInLine.Count != 0)
-                        targetToDamage = targetsInLine[0];
-                    else
-                        targetToDamage = null;
+                float maxHealth = 0;
+                float currentHealth = 0;
+                Slider slider = null;
+
+                if (targetChar != null) {
+                    maxHealth = targetChar.data.health;
+                    currentHealth = targetChar.health;
+                    slider = targetChar.slider;
+
+                } else if (targetBox != null) {
+                    maxHealth = targetBox.maxHealth;
+                    currentHealth = targetBox.health;
+                    slider = targetBox.slider;
                 }
 
+                currentHealth = Mathf.Clamp(currentHealth - attackDamage, 0, maxHealth);
+                slider.value = currentHealth;
+
+                if (targetChar != null) 
+                    targetChar.health = currentHealth;
+                else if (targetBox != null) 
+                    targetBox.health = currentHealth;
+
+                if (currentHealth == 0) {
+                    if(targetBox != null) {
+                        if (targetBox.isGoldBox == 0)
+                            PlayerScript.Instance.ChangeCoins(isLeftSideCharacter, targetBox.goldLoot);
+                        else
+                            PlayerScript.Instance.ChangeExperience(isLeftSideCharacter, targetBox.xpLoot);
+                    }
+
+                    targetsInLine.RemoveAt(0);
+                    targetToDamage = targetsInLine.Count > 0 ? targetsInLine[0] : null;
+                }
             }
 
             yield return new WaitForSeconds(attackSpeed);

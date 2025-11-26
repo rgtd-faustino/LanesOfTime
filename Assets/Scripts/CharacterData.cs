@@ -9,4 +9,6 @@ public class CharacterData : ScriptableObject {
     public int value;
     public int experience;
     public string type;
+    public Vector3 rotationLeft = new Vector3(0, 90, 0);
+    public Vector3 rotationRight = new Vector3(0, -90, 0);
 }

@@ -12,9 +12,10 @@ public class AttackBoxCollider : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         // is this is an enemy character?
         CharacterScript otherChar = other.gameObject.GetComponentInParent<CharacterScript>();
+        LootBox lootBox = other.gameObject.GetComponent<LootBox>();
 
-        if (otherChar != null && otherChar.direction != character.direction &&
-            (other.gameObject.CompareTag("CharacterLeft") || other.gameObject.CompareTag("CharacterRight"))) {
+        if ((otherChar != null && otherChar.direction != character.direction && (other.gameObject.CompareTag("CharacterLeft") || other.gameObject.CompareTag("CharacterRight")))
+            || lootBox != null) {
 
             character.targetsInLine.Add(other.gameObject);
 

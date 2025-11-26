@@ -9,6 +9,7 @@ TagManager:
   - CharacterRight
   - BaseLeft
   - BaseRight
+  - Bullet
   layers:
   - Default
   - TransparentFX

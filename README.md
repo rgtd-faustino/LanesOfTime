@@ -33,16 +33,16 @@ O jogo rejeita a ideia de memorizar uma estratégia vencedora fixa. A **economia
 ## Screenshots
  
 <p align="center">
-  <img src="images/menu_inicial.png" width="49%" alt="Menu Inicial"/>
-  <img src="images/menu_campanha.png" width="49%" alt="Menu Campanha"/>
+  <img src="images/menu_inicial.jpg" width="49%" alt="Menu Inicial"/>
+  <img src="images/menu_campanha.jpg" width="49%" alt="Menu Campanha"/>
 </p>
 <p align="center">
   <em>Menu Inicial (esquerda) · Menu Campanha (direita)</em>
 </p>
  
 <p align="center">
-  <img src="images/menu_melhorias.png" width="49%" alt="Menu de Melhorias"/>
-  <img src="images/gameplay.png" width="49%" alt="Gameplay"/>
+  <img src="images/menu_melhorias.jpg" width="49%" alt="Menu de Melhorias"/>
+  <img src="images/gameplay.jpg" width="49%" alt="Gameplay"/>
 </p>
 <p align="center">
   <em>Menu de Melhorias (esquerda) · Gameplay em campo de batalha (direita)</em>
